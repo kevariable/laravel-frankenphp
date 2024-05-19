@@ -3,5 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return \App\Models\User::query()->get();
+    $fiber = new Fiber(function() {
+        echo 'In the Fiber'.PHP_EOL;
+        echo 'Still inside'.PHP_EOL;
+    });
+    $fiber->start();
 });

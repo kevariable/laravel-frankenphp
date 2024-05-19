@@ -5,9 +5,10 @@ services:
       context: .
     volumes:
       - .:/app
+      - /app/node_modules
       - caddy_data:/data
       - caddy_config:/config
-    entrypoint: php artisan octane:frankenphp --host=localhost --port=443 --admin-port=2019 --https
+    entrypoint: /entrypoint.sh
     ports:
       - 443:443
       - 443:443/udp
