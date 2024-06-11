@@ -5,10 +5,8 @@ services:
       context: .
     volumes:
       - .:/app
-      - /app/node_modules
       - caddy_data:/data
       - caddy_config:/config
-    command: /entrypoint.sh
     ports:
       - 443:443
       - 443:443/udp
